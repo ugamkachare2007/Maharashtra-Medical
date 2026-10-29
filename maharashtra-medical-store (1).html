@@ -1,0 +1,193 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maharashtra Medical | Online Health & Wellness</title>
+<style>
+:root{--green:#138052;--deep:#0b4b32;--mint:#eaf7ef;--ink:#15271e;--muted:#68786e;--line:#dfeae2;--bg:#f7faf8;--orange:#ffbf69}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--ink)}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.announce{background:var(--deep);color:#fff;text-align:center;padding:9px;font-size:12px}
+.header{position:sticky;top:0;z-index:10;background:#ffffffed;border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;gap:16px;padding:13px 20px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.logo{width:44px;height:44px;border-radius:14px;background:var(--green);color:white;display:grid;place-items:center;font-size:25px}
+.brand strong{display:block;font-size:17px}
+.brand small{font-size:9px;letter-spacing:1.5px;color:var(--muted)}
+.search{display:flex;flex:1;max-width:430px}
+.search input{width:100%;min-width:0;border:1px solid var(--line);padding:12px;border-radius:12px 0 0 12px}
+.search button,.primary,.add{border:0;background:var(--green);color:white;font-weight:bold}
+.search button{padding:0 17px;border-radius:0 12px 12px 0}
+.btn,.primary{border-radius:11px;padding:12px 16px}
+.btn{border:1px solid var(--line);background:white;font-weight:bold}
+.count{background:var(--orange);padding:4px 8px;border-radius:20px;margin-left:5px}
+main{max-width:1180px;margin:auto;padding:25px 20px 55px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;padding:clamp(28px,5vw,62px);border-radius:28px;background:linear-gradient(115deg,#e5f6eb,#f4fbf6,#d5f0df);border:1px solid #d8ecdf}
+.eyebrow,.category{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--green)}
+.hero h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:15px 0}
+.hero p{line-height:1.8;color:var(--muted)}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual img{width:100%;height:275px;object-fit:cover;border-radius:24px}
+.floating{position:absolute;left:0;bottom:0;background:white;padding:12px;border-radius:12px;font-size:12px;font-weight:bold}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:20px 0 42px}
+.trust-card,.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:17px}
+.trust-card b,.trust-card small{display:block}
+.trust-card small{font-size:11px;color:var(--muted);margin-top:5px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:37px 0 18px}
+.section-head h2{margin:0 0 7px}
+.section-head p{font-size:13px;color:var(--muted)}
+.pill-note,.note{background:#fff4e3;color:#80551d;padding:10px;border-radius:9px;font-size:11px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:19px}
+.chip{border:1px solid var(--line);background:white;border-radius:99px;padding:9px 14px;font-size:12px;font-weight:bold}
+.chip.active{background:var(--deep);color:white}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.product{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:white}
+.product-img{height:180px;position:relative;background:#f8fbf9;display:flex;align-items:center;justify-content:center;padding:10px}
+.product-img img{width:100%;height:100%;object-fit:contain;object-position:center}
+.product-badge{position:absolute;left:11px;top:11px;background:white;color:var(--green);font-size:9px;font-weight:bold;border-radius:6px;padding:6px}
+.pinfo{padding:15px}
+.product h3{font-size:14px;margin:8px 0 6px}
+.product p{font-size:11px;line-height:1.6;color:var(--muted);min-height:34px}
+.pfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:14px}
+.price{font-weight:bold}
+.add{padding:10px;border-radius:9px;font-size:12px}
+.empty{grid-column:1/-1;text-align:center;padding:35px;background:white;border-radius:15px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:43px}
+.panel h2{margin:9px 0}
+.panel p{font-size:13px;line-height:1.8;color:var(--muted)}
+.upload{background:#f7fcf8;border:1px dashed #a8cbb7;border-radius:13px;padding:16px}
+.upload label{display:block;font-size:12px;font-weight:bold;margin-bottom:10px}
+.upload small{display:block;margin-top:8px;color:var(--muted)}
+.contact-list{display:grid;gap:16px;margin-top:20px}
+.contact-item{display:flex;gap:12px}
+.contact-item b,.contact-item small{display:block}
+.contact-item small{font-size:12px;color:var(--muted);margin-top:4px}
+.footer{background:#102d21;color:#e9f4ed;padding:32px 20px}
+.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.foot p{font-size:12px;line-height:1.8;color:#b7cdbf;max-width:550px}
+.foot-links{display:flex;gap:16px;font-size:12px}
+.modalbg{position:fixed;inset:0;z-index:30;background:#06170fb8;display:none;align-items:center;justify-content:center;padding:15px}
+.modalbg.show{display:flex}
+.modal{width:min(500px,100%);max-height:92vh;overflow:auto;background:white;border-radius:20px;padding:23px}
+.mhead{display:flex;justify-content:space-between;align-items:center}
+.mhead h2{margin:0}
+.close{border:0;background:var(--mint);width:36px;height:36px;border-radius:10px;font-size:22px}
+.line{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+.qty{display:flex;align-items:center;gap:9px;margin-top:9px}
+.qty button{width:27px;height:27px;background:white;border:1px solid var(--line);border-radius:7px}
+.remove{border:0;background:white;color:#b53b3b;font-size:11px;padding:7px 0}
+.total{display:flex;justify-content:space-between;font-size:18px;font-weight:bold;padding:17px 0}
+.field{display:grid;gap:7px;margin:13px 0}
+.field label{font-size:12px;font-weight:bold}
+.field input,.field textarea,.field select{border:1px solid var(--line);padding:12px;border-radius:10px;width:100%}
+.checkout-summary{background:#f5faf6;padding:13px;border-radius:11px;display:flex;justify-content:space-between;margin:14px 0}
+.success{text-align:center;padding:22px 8px}
+.success-icon{width:74px;height:74px;background:#e4f7eb;color:var(--green);border-radius:50%;display:grid;place-items:center;font-size:38px;margin:auto auto 17px}
+.order-id{display:inline-block;background:var(--mint);padding:9px 13px;border-radius:8px;font-size:12px;font-weight:bold;margin:8px 0}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102d21;color:white;padding:12px 18px;border-radius:11px;display:none;z-index:50}
+.toast.show{display:block}
+@media(max-width:850px){.nav{flex-wrap:wrap}.search{order:4;flex-basis:100%;max-width:none}.hero{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.columns,.trust{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.nav{padding:11px 12px;gap:9px}.brand strong{font-size:14px}.logo{width:38px;height:38px}.nav>.btn{display:none}main{padding:15px 12px 38px}.hero{padding:25px 20px}.hero h1{font-size:42px}.hero-visual img{height:205px}.products{gap:10px}.product-img{height:145px}.pinfo{padding:11px}.product h3{font-size:12px}.product p{font-size:10px;min-height:44px}.pfoot{align-items:stretch;flex-direction:column}.add{width:100%}.panel{padding:19px}}
+</style>
+</head>
+<body>
+<div class="announce">Everyday healthcare, made simpler • Student website prototype</div>
+<header class="header"><div class="nav">
+<a class="brand" href="#home"><span class="logo">✚</span><span><strong>Maharashtra Medical</strong><small>HEALTH • WELLNESS • CARE</small></span></a>
+<form class="search" id="searchForm"><input id="searchInput" placeholder="Search medicines & healthcare products…" aria-label="Search products"><button type="submit">Search</button></form>
+<button class="btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+<button class="primary" id="openCart">Cart <span class="count" id="cartCount">0</span></button>
+</div></header>
+<main>
+<section class="hero" id="home"><div>
+<div class="eyebrow">Care for every day</div><h1>Your health.<br>Our priority.</h1>
+<p>Discover healthcare essentials, personal care, wellness and everyday medical supplies in one easy-to-browse catalogue.</p>
+<div class="hero-actions"><a class="primary" href="#store">Shop products →</a><a class="btn" href="#prescription">Prescription information</a></div>
+</div><div class="hero-visual"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85" alt="Healthcare professional"><div class="floating">♡ Care you can count on</div></div></section>
+<section class="trust">
+<div class="trust-card">⌕ <div><b>Quick product search</b><small>Search by product or category</small></div></div>
+<div class="trust-card">▦ <div><b>Organised catalogue</b><small>Browse everyday essentials</small></div></div>
+<div class="trust-card">♡ <div><b>Simple shopping flow</b><small>Cart, checkout and confirmation</small></div></div>
+</section>
+<section id="store"><div class="section-head"><div><h2>Shop healthcare essentials</h2><p>Browse our sample catalogue and add products to your cart.</p></div><span class="pill-note">Demo prices • Not a live pharmacy</span></div><div class="chips" id="categories"></div><div class="products" id="products"></div></section>
+<section class="columns">
+<div class="panel" id="prescription"><div class="eyebrow">Prescription assistance</div><h2>Have a prescription?</h2><p>This demo shows a sample prescription-upload area. Files are not uploaded or securely stored.</p><div class="upload"><label for="file">Choose a prescription file (demo only)</label><input type="file" id="file" accept="image/*,.pdf"><small id="fileName">No file selected</small></div><p class="note">For privacy, do not select real medical documents on this demo website.</p><button class="primary" id="previewFile">Preview selection</button></div>
+<div class="panel" id="contact"><div class="eyebrow">Get in touch</div><h2>Visit Maharashtra Medical</h2><p>Update these placeholders with verified shop details before publishing.</p><div class="contact-list">
+<div class="contact-item">📍 <div><b>Store address</b><small>Add the verified store address</small></div></div>
+<div class="contact-item">☎ <div><b>Phone</b><small>Add the confirmed contact number</small></div></div>
+<div class="contact-item">◷ <div><b>Opening hours</b><small>Add confirmed store timings</small></div></div>
+<div class="contact-item">✉ <div><b>Email</b><small>Add the official email address</small></div></div>
+</div></div></section>
+</main>
+<footer class="footer"><div class="foot"><div><b>✚ Maharashtra Medical</b><p>A student website prototype with product browsing, search, category filtering, cart and demo order confirmation. Not a live pharmacy or payment service.</p></div><div class="foot-links"><a href="#home">Home</a><a href="#store">Catalogue</a><a href="#contact">Contact</a></div></div></footer>
+
+<div class="modalbg" id="cartModal" role="dialog" aria-modal="true"><div class="modal"><div class="mhead"><h2>Your cart</h2><button class="close" id="closeCart">×</button></div><div id="cartItems"></div><div class="total"><span>Total</span><span id="cartTotal">₹0</span></div><p class="note">Demo only: no real order or payment is processed.</p><button class="primary" style="width:100%" id="checkoutBtn">Continue to checkout →</button></div></div>
+<div class="modalbg" id="checkoutModal" role="dialog" aria-modal="true"><div class="modal"><div class="mhead"><h2>Checkout</h2><button class="close" id="closeCheckout">×</button></div><p>Enter sample customer details. No payment details are collected.</p><div class="checkout-summary"><span>Order total</span><strong id="checkoutTotal">₹0</strong></div>
+<form id="checkoutForm">
+<div class="field"><label for="name">Full name</label><input id="name" required placeholder="Enter your name"></div>
+<div class="field"><label for="phone">Phone number</label><input id="phone" required inputmode="tel" pattern="[0-9+() -]{8,16}" placeholder="Enter phone number"></div>
+<div class="field"><label for="address">Delivery address</label><textarea id="address" rows="3" required placeholder="Enter delivery address"></textarea></div>
+<div class="field"><label for="payment">Payment option (demo)</label><select id="payment"><option>Cash on delivery (demo)</option><option>Online payment (demo only)</option></select></div>
+<button class="primary" style="width:100%" type="submit">Place demo order</button><p class="note">This is a demo confirmation only. It does not charge money.</p>
+</form></div></div>
+<div class="modalbg" id="successModal" role="dialog" aria-modal="true"><div class="modal"><div class="success"><div class="success-icon">✓</div><h2>Order placed successfully!</h2><p id="successText">Thank you for shopping with Maharashtra Medical.</p><div class="order-id" id="orderId">Demo order #MM0001</div><p>No real payment has been taken and the store has not received this order.</p><button class="primary" style="width:100%" id="doneBtn">Continue shopping</button></div></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const data=[
+{id:1,name:'Digital Thermometer',cat:'Medical Devices',desc:'Easy-to-read home temperature-checking device.',price:149,img:'https://www.testkompassen.se/assets/ProductImages/_resampled/PadWyI0MDAiLCI0MDAiLCJGRkZGRkYiLDBd/febertermometer-ft09-3955-x8.jpg',badge:'Home essential'},
+{id:2,name:'First Aid Kit',cat:'Medical Devices',desc:'Compact first-aid essentials for everyday readiness.',price:299,img:'https://image.made-in-china.com/202f0j00ojelnUAgfLrV/Daily-Use-Storage-Box-Metal-First-Aid-Kit-Tin-First-Aid-Box.webp',badge:'Popular'},
+{id:3,name:'Vitamin C Supplement',cat:'Wellness',desc:'Sample wellness listing; ask a professional if suitable.',price:120,img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhysBaEq1Ohw_JWk3UUPYlb4FQjDMBn0yx5daWa2iUvEoAkt4F_Lv6fohI&s=10',badge:'Wellness'},{id:4,name:'Moisturising Lotion',cat:'Personal Care',desc:'Everyday moisturising care for soft, comfortable skin.',price:189,img:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80',badge:'Daily care'},
+{id:5,name:'Baby Care Essentials',cat:'Baby Care',desc:'Sample baby-care product for your family essentials list.',price:249,img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=80',badge:'Gentle care'},
+{id:6,name:'Hand Sanitizer',cat:'Personal Care',desc:'A handy hygiene essential for everyday routines.',price:75,img:'https://cdn.grofers.com/app/images/products/sliding_image/421603a.jpg?ts=1691669261',badge:'Everyday'},
+{id:7,name:'Hot Water Bag',cat:'Orthopedic Care',desc:'Reusable hot-water bag for household comfort.',price:199,img:'https://m.media-amazon.com/images/I/91nf00hsIhL._AC_UF1000,1000_QL80_.jpg',badge:'Comfort'},
+{id:8,name:'Nutrition Drink',cat:'Nutrition',desc:'Sample nutrition catalogue item; check ingredients.',price:220,img:'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=700&q=80',badge:'Nutrition'},
+{id:9,name:'Surgical Mask Pack',cat:'Surgical Items',desc:'Sample protective-supplies listing for daily use.',price:99,img:'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=700&q=80',badge:'Protection'},
+{id:10,name:'Home Care Essentials',cat:'Home Essentials',desc:'Useful household care items for daily routines.',price:159,img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=700&q=80',badge:'Home care'},
+{id:11,name:'Ayurvedic Balm',cat:'Wellness',desc:'Example wellness listing; check ingredients before use.',price:85,img:'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80',badge:'Herbal care'},
+{id:12,name:'Personal Care Kit',cat:'Personal Care',desc:'A selection of everyday personal-care essentials.',price:275,img:'https://littlerituals.in/cdn/shop/files/MINI_TRAVEL_KIT_SS_03_1.jpg?v=1752727636&width=1200',badge:'Care kit'}
+];
+const cats=['All','Medical Devices','Wellness','Personal Care','Baby Care','Orthopedic Care','Nutrition','Surgical Items','Home Essentials'];
+let cat='All',query='',cart={};const $=id=>document.getElementById(id);const money=n=>'₹'+n.toLocaleString('en-IN');
+
+function renderCats(){
+$('categories').innerHTML=cats.map(c=>`<button type="button" class="chip ${cat===c?'active':''}" data-cat="${c}">${c}</button>`).join('');
+document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{cat=b.dataset.cat;renderCats();renderProducts()});
+}
+function renderProducts(){
+const list=data.filter(p=>(cat==='All'||p.cat===cat)&&(p.name+' '+p.cat+' '+p.desc).toLowerCase().includes(query));
+$('products').innerHTML=list.length?list.map(p=>`<article class="product"><div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x420/eaf7ef/137a53?text='+encodeURIComponent(p.name)"><span class="product-badge">${p.badge}</span></div><div class="pinfo"><span class="category">${p.cat}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="pfoot"><span class="price">${money(p.price)}</span><button class="add" type="button" data-add="${p.id}">＋ Add to cart</button></div></div></article>`).join(''):'<div class="empty">No products found. Try another search or category.</div>';
+document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const id=Number(b.dataset.add);cart[id]=(cart[id]||0)+1;updateCart();toast('Added to your cart ✓')});
+}
+function updateCart(){
+const entries=Object.entries(cart),count=entries.reduce((n,[id,q])=>n+q,0);$('cartCount').textContent=count;
+$('cartItems').innerHTML=entries.length?entries.map(([id,q])=>{const p=data.find(x=>x.id===Number(id));return `<div class="line"><div style="flex:1"><b>${p.name}</b><div>${money(p.price)} each</div><div class="qty"><button type="button" data-minus="${id}">−</button><span>${q}</span><button type="button" data-plus="${id}">＋</button></div><button type="button" class="remove" data-remove="${id}">Remove</button></div><b>${money(p.price*q)}</b></div>`}).join(''):'<div class="empty">Your cart is empty. Add a product to get started.</div>';
+const total=entries.reduce((n,[id,q])=>n+data.find(p=>p.id===Number(id)).price*q,0);$('cartTotal').textContent=money(total);$('checkoutTotal').textContent=money(total);
+document.querySelectorAll('[data-minus]').forEach(b=>b.onclick=()=>{const id=b.dataset.minus;cart[id]--;if(cart[id]<=0)delete cart[id];updateCart()});
+document.querySelectorAll('[data-plus]').forEach(b=>b.onclick=()=>{cart[b.dataset.plus]++;updateCart()});
+document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{delete cart[b.dataset.remove];updateCart()});
+}
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2300)}
+$('searchForm').onsubmit=e=>{e.preventDefault();query=$('searchInput').value.trim().toLowerCase();renderProducts();$('store').scrollIntoView({behavior:'smooth'})};
+$('searchInput').oninput=e=>{query=e.target.value.trim().toLowerCase();renderProducts()};
+$('openCart').onclick=()=>$('cartModal').classList.add('show');
+$('closeCart').onclick=()=>$('cartModal').classList.remove('show');
+$('checkoutBtn').onclick=()=>{if(!Object.keys(cart).length){toast('Your cart is empty');return}$('cartModal').classList.remove('show');$('checkoutModal').classList.add('show')};
+$('closeCheckout').onclick=()=>$('checkoutModal').classList.remove('show');
+['cartModal','checkoutModal','successModal'].forEach(id=>$(id).onclick=e=>{if(e.target===$(id))$(id).classList.remove('show')});
+$('checkoutForm').onsubmit=e=>{e.preventDefault();if(!Object.keys(cart).length){toast('Your cart is empty');return}const orderNo='MM'+Date.now().toString().slice(-6);$('orderId').textContent='Demo order #'+orderNo;$('successText').textContent='Thank you, '+$('name').value.trim()+', for shopping with Maharashtra Medical.';$('checkoutModal').classList.remove('show');$('successModal').classList.add('show');cart={};updateCart();$('checkoutForm').reset()};
+$('doneBtn').onclick=()=>{$('successModal').classList.remove('show');$('store').scrollIntoView({behavior:'smooth'})};
+$('file').onchange=()=>$('fileName').textContent=$('file').files[0]?$('file').files[0].name:'No file selected';
+$('previewFile').onclick=()=>toast($('file').files[0]?'Selected for demo preview only':'Choose a file first');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modalbg.show').forEach(m=>m.classList.remove('show'))});
+renderCats();renderProducts();updateCart();
+</script>
+</body>
+</html>
